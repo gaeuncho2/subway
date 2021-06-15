@@ -289,9 +289,9 @@ h1{
     height: 98px;
     background:url(../images/btn_more.png) no-repeat;
     position:absolute;
-    top:50%;
+    top:80px;
     left: 50%;
-    transform:translate(-50%, -50%);
+    transform:translate(-50%);
     opacity: 0;
     transition:all 0.3s;
 }
