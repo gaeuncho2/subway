@@ -1,0 +1,547 @@
+@charset "utf-8";
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+img{
+    max-width:100%;
+    vertical-align: middle;
+}
+.cf::after{
+    content:'';
+    display: block;
+    clear:both;
+}
+.inner{
+    max-width:1170px;
+    margin:0 auto;
+}
+body{
+    font-size:16px;
+    color:#666;
+}
+
+
+#header .inner{
+    position: relative;
+}
+
+/*로그인 회원가입*/
+.membership{
+    position: absolute;
+    top:50px;
+    right: 0;
+    font-size:13px;
+ 
+}
+.membership a{
+    padding:0 15px;
+    vertical-align: middle;
+}
+.membership a:last-child{
+    padding:0 0 0 5px;
+}
+.membership a:nth-child(2){
+    position: relative;
+}
+.membership a:nth-child(2)::after{
+    content:' ';
+    position:absolute;
+    top:50%;
+    left:-3px;
+    width:3px;
+    height: 3px;
+    background-color:#ddd;
+    margin-top:-1.5px;
+}
+
+
+#header{
+    border-top: 5px solid #009223;
+}
+h1{
+    text-align: center;
+    padding:30px 0;
+}
+
+
+/*1단계 메뉴*/
+#nav{
+    position: relative;
+}
+#nav .depth1 > li{
+    float:left;
+    width:16.6666%;
+    text-align: center;    
+    border:0px solid black;
+    position:relative;
+}
+#nav .depth1 > li > a{
+    display: block;
+    font-size:18px;
+    color:#292929;
+    font-weight:bold;
+    letter-spacing:-0.72px;
+    padding:30px 0;
+}
+
+/*2단계 메뉴*/
+#nav .depth2{
+    opacity: 0;
+    position:absolute;
+    top:100%; /*부모의 바깥쪽 아래*/
+    left:0;
+    background-color: #fff;
+    width:100%;
+    padding: 20px 0;
+    z-index:99;
+    font-size:15px;
+    height:0;
+    overflow:hidden;
+    border-top:1px solid #e5e5e5;
+    transition:all 0.3s;
+}
+#nav .depth2 > li{
+    line-height: 2.5em;
+}
+
+/*배경박스*/
+#nav .bgbox {
+    width:100%;
+    height: 0;
+    background-color:#fff;
+    position:absolute;
+    top:100%;
+    z-index:98;
+    border-top:1px solid #e5e5e5;
+    transition:all 0.3s;
+}
+
+/*hover*/
+#nav .depth1:hover > li > .depth2 {
+    height: 260.8px;
+    opacity: 1;
+}
+#nav .depth1 > li:hover > a{
+    color:#009224;
+}
+#nav .depth2 > li:hover a {
+    text-decoration: underline;
+    color:#009224;
+}
+#nav .depth1:hover + .bgbox{
+    height:260.8px;
+}
+
+
+/* 슬라이드 */
+#main .slideOuter{
+    height:386.83px;
+    overflow: hidden;
+}
+
+/* 매장찾기 / 가맹신청 */
+#main .store{
+    position: relative;
+    height: 80px;
+}
+#main .storeinfo{
+    position:absolute;
+    top:-30px;
+    right:0;
+}
+#main .storeinfo > div{
+    width:300px; 
+    float:left;    
+}
+#main .storeinfo > div:first-child{
+    background-color:#ffce32;
+    border-radius: 30px 0 0 0;
+    color:#000;
+}
+#main .storeinfo > div:last-child{
+    background-color:#009223;
+    color:#fff;
+    border-radius: 0 0 30px 0 ;
+}
+#main .storeinfo > div > a{
+    display: block;
+    height:80px;
+    font-size:22px;
+    text-align: center;
+    line-height: 80px;
+    letter-spacing: -2px;
+}
+
+
+
+#main .menu>div{
+    max-width: 1230px;
+    margin:0 auto;
+    position: relative;
+}
+/* 메인메뉴 */
+#main .menu{
+    padding-top:40px;
+}
+#main .menu h2{
+    height: 60px;
+    font-size:40px;
+    background:url(../images/bul_tit.png);
+    /*이미지 크기 60*60, 따로 높이를 지정하지 않아서 폰트크기로 높이가 맞춰지고
+    그래서 이미지 일부가 잘림! 그래서 높이를 이미지 크기만큼 따로 지정해줌.*/
+    background-repeat:no-repeat;
+    padding-left:25px;
+    color:#000;
+}
+#main .menu .title{
+    position: absolute;
+    top:20px;
+    right: 0;
+}
+#main .menu .title li{
+    float:left;
+    padding: 0 20px;
+    font-weight: bold;
+    position:relative;
+    cursor: pointer;
+}
+#main .menu .title li.active{
+    color:#009223;
+}
+
+#main .menu .title li:last-child{
+    padding-right:0;
+}
+#main .menu .title li::after{
+    content:'';
+    width:1px;
+    height: 14px;
+    background-color:#ddd;
+    position:absolute;
+    top:5px;
+    right:0;
+}
+#main .menu .title li:last-child::after{
+    display: none;
+}
+
+
+/* 메인메뉴 이미지 */
+#main .menu .content{
+    padding: 30px 50px;
+}
+#main .menu .content ul{ 
+    /*자식인 li가 float 하면서 높이가 무너지는걸 방지함*/
+    overflow: hidden;
+}
+#main .menu .content li{
+    width:25%; float:left;
+    padding: 20px 0;
+    text-align: center;
+    transition: all 0.5s;
+    position: relative;
+    /* overflow: hidden; */
+}
+#main .menu .content li strong{
+    font-size:18px;
+    color:#292929;
+    transition: all 0.5s;
+}
+#main .menu .content li p{
+    font-size:13px;
+    color:#999;
+    padding-top:15px 20px 0;
+    transition: all 0.5s;
+}
+#main .menu .content > div {
+    display: none;
+}
+#main .menu .content > div.cont1{
+    display: block;
+}
+#main .menu .content li:hover p{
+    opacity: 0;
+}
+#main .menu .content li:hover strong{
+    display: inline-block;
+    transform: scale(1.5) translateY(15px);
+}
+#main .menu .content li:hover img{
+    transform: scale(1.2);
+    transition: all 0.5s;
+}
+
+
+/* 메뉴 사진 위의 돋보기*/
+#main .menu .content li a::after{
+    content:'';
+    width:98px;
+    height: 98px;
+    background:url(../images/btn_more.png) no-repeat;
+    position:absolute;
+    top:50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    opacity: 0;
+    transition:all 0.3s;
+}
+#main .menu .content li:hover a::after{
+    opacity: 1;
+}
+
+
+
+/* 메인 중 세번째 섹션 중 1,2번째 상자 */
+#main .introduce{
+    background:url(../images/bg_content.gif);
+    padding:80px;
+}
+#main .introduce .kim{
+    float:left;
+    background-repeat:no-repeat;
+}
+#main .introduce .first{
+    width: 33%;
+    position: relative;
+}
+#main .introduce .second{
+    width:67%;
+    position: relative;
+}
+
+/*introduce 내의 tit텍스트 설정*/
+#main .introduce .kim .tit{
+    position:absolute;
+    top:38px;
+    left:38px;
+    font-size:28px;
+    color:#fff;
+    font-weight: bold;
+    line-height: 40px;
+    letter-spacing: -0.03em;
+}
+#main .introduce .second .tit{
+   left:390px; /*두번째 tit 지정하고 오른쪽 끝으로 붙이기*/
+}
+#main .introduce .kim .btn{
+    position:absolute;
+    bottom: 38px;
+    left: 38px;
+    border:2px solid #fff;
+    color:#fff;
+    font-weight: bold;
+    display: inline-block;
+    padding:10px 20px;
+    border-radius: 25px 25px;
+}
+#main .introduce .second .btn{
+    left:390px;
+}
+#main .introduce .kim .btn:hover{
+    /*hover 하면 a태그에 반투명한 배경색이 깔리게함*/
+    background:rgba(0,0,0,0.5)
+}
+
+/* 메인 중 세번째 섹션 중 3, 4번째 상자 */
+#main .introduce .third{
+    width: 70%;
+    background-color:#fff;
+    overflow: hidden; /*자식들이 float 써서*/
+    height: 292.5px;
+    margin-top:30px;
+    border-radius: 35px 0 35px 0;
+    padding: 70px;
+}
+#main .introduce .third .what{
+    width:45%;
+    float:left;
+    padding-right: 100px;
+}
+#main .introduce .third .what h2{
+    font-size:30px;
+    color:#292929;
+    background:url(../images/bul_tit.png) no-repeat;
+    height: 60px; /*배경이미지 크기*/
+    padding:15px 0 0 23px;
+}
+#main .introduce .third .what p{
+    text-align: center;
+    letter-spacing: -1px;
+    padding: 15px;
+}
+#main .introduce .third .news{
+    width:55%; float: right;
+}
+#main .introduce .third .news li{
+    color:#292929;
+    line-height:2.2em;
+}
+#main .introduce .third .news li> a{
+    position: relative; /*a::after 의 부모라 relative*/
+}
+#main .introduce .third .news li > a:hover{ 
+    color:#009223;
+}
+#main .introduce .third .news li> a::after{
+    content:'';
+    width: 0%;
+    height: 1px;
+    background-color:#009223;
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    transition:all 0.2s;
+}
+#main .introduce .third .news li > a:hover::after{
+    width:100%;
+}
+#main .introduce .third .news > a{
+    color:#999;
+    font-size: 14px;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+#main .introduce .forth{
+    width: 22.5%;
+    margin: 30px 5% 0 2.5%;
+
+    /* border-radius: 0 30px 0 30px;
+    overflow: hidden; */
+}
+#main .introduce .forth img{
+    border-radius: 0 35px 0 35px; /*border-radius 는 이미지에 직접 적용해도되고, 감싸고잇는 박스에 적용한다음 overflow hidden 처리해도된다 내마음*/
+}
+
+
+/*써브웨이 안내*/
+#main .info .inner{
+    overflow: hidden;
+    text-align: center;
+    padding:40px 0;
+} 
+#main .info li{
+    display: inline-block;
+    padding:0 20px;
+}
+#main .info li:last-child{
+    padding-right: 80px;
+}
+#main .info li .icon{
+    width:70px;
+    height: 70px;
+    background:url(../images/icon_quickmenu.png);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+#main .info li .text{
+    display: inline-block;
+    vertical-align: middle;
+    text-align:left;
+}
+#main .info li .text strong{
+    font-size:18px;
+    color:#292929
+}
+#main .info li .text p{
+    font-size:13px;
+    color:#999;
+    margin-top: 6px;
+    letter-spacing: -1px;
+}
+
+/* 스프라이트 이미지 */
+#main .info li:first-child .icon{
+    background-position:0 0;
+}
+#main .info li:nth-child(2) .icon{
+    background-position:-70px 0;
+    
+}
+#main .info li:nth-child(3) .icon{
+    background-position:-140px 0;
+}
+#main .info li:last-child .icon{
+    background-position:-210px 0;
+}
+
+
+
+
+/* 하단구역 */
+#footer{
+    background-color:#292929;
+    font-size:14px;
+    letter-spacing: -1px;
+}
+#footer .bmenu{
+    border-bottom:1px solid #666;
+    padding:22px 0;
+}
+#footer .bmenu a{
+    padding-right: 30px;
+}
+#footer .bmenu strong{
+    color:#bbb;
+}
+#footer .info2 > div:first-child span{
+    padding:0 5px;
+    position: relative;
+}
+#footer .info2 > div:first-child span.addr{
+    padding-left:0;
+}
+#footer .info2 > div:first-child span::after{
+    content:'';
+    width:2px;
+    height: 10px;
+    background-color:#666666;
+    position: absolute;
+    top:4px;
+    left:-2px;
+}
+#footer .info2 > div:first-child span.addr::after{
+    display: none;
+}
+
+/* 하단구역 sns 아이콘 */
+#footer .info2{
+    padding:19px 0;
+    position:relative;
+}
+#footer .info2 div:first-child{
+    margin-bottom:7px;
+}
+#footer .info2 .sns{
+    position: absolute;
+    top:50%;
+    right:0;
+    transform:translateY(-50%);
+}
+#footer .info2 .sns > div {
+    width:50px;
+    height: 50px;
+    display: inline-block;
+    border:0px solid #fff;
+    margin:0 5px;
+}
+#footer .info2 .sns > div:first-child{
+    background:url(../images/icon_sns_instar.png)
+}
+#footer .info2 .sns > div:last-child{
+    background:url(../images/icon_sns_facebook.png)
+}
+#footer .info2 .sns > div:hover{
+    background-position:-50px 0;
+}
