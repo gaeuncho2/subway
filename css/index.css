@@ -277,7 +277,7 @@ h1{
     transform: scale(1.5) translateY(15px);
 }
 #main .menu .content li:hover img{
-    transform: scale(1.2);
+    transform: scale(1.25);
     transition: all 0.5s;
 }
 
